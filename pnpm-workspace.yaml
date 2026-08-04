@@ -1,5 +1,9 @@
 allowBuilds:
   sharp: true
+  esbuild: true
+
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+
+minimumReleaseAge: 0
