@@ -12,6 +12,12 @@ export const auth = betterAuth({
     usePlural: true,
     schema: schema,
   }),
+  user: {
+    additionalFields: {
+      dateOfBirth: { type: "date", required: false },
+      height: { type: "number", required: false },
+    },
+  },
   plugins: [nextCookies()],
   baseURL: env.BETTER_AUTH_URL,
   socialProviders: {
