@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
+import { z } from "zod";
 
 import { db } from "@/db";
 import * as schema from "@/db/schema";
@@ -21,6 +22,13 @@ export const auth = betterAuth({
     additionalFields: {
       dateOfBirth: { type: "date", required: false },
       height: { type: "number", required: false },
+      gender: {
+        type: "string",
+        required: false,
+        validator: {
+          input: z.enum(["male", "female", "other"]).optional(),
+        },
+      },
     },
   },
   plugins: [nextCookies()],
