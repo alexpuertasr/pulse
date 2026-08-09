@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
 import { PulseLogo } from "@/components/pulse-logo";
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,8 @@ export default async function Page() {
   if (!isProfileComplete(session.user)) {
     redirect("/auth/onboarding");
   }
+
+  const t = await getTranslations("dashboard");
 
   async function handleSignOut() {
     "use server";
@@ -50,7 +53,7 @@ export default async function Page() {
           </span>
           <form action={handleSignOut}>
             <Button type="submit" variant="outline" size="sm">
-              Sign out
+              {t("sign-out")}
             </Button>
           </form>
         </div>

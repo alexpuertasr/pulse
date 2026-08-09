@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { z } from "zod";
 
 import { AuthHeading } from "@/components/auth-heading";
@@ -17,12 +18,6 @@ const profileSchema = z.object({
   height: z.coerce.number().int().min(50).max(300),
 });
 
-const genderItems = [
-  { label: "Male", value: "male" },
-  { label: "Female", value: "female" },
-  { label: "Other", value: "other" },
-];
-
 export default async function Page() {
   const session = await auth.api.getSession({
     headers: await headers(),
@@ -35,6 +30,14 @@ export default async function Page() {
   if (isProfileComplete(session.user)) {
     redirect("/");
   }
+
+  const t = await getTranslations("onboarding");
+
+  const genderItems = [
+    { label: t("gender.male"), value: "male" },
+    { label: t("gender.female"), value: "female" },
+    { label: t("gender.other"), value: "other" },
+  ];
 
   const today = new Date().toISOString().slice(0, 10);
 
@@ -61,10 +64,7 @@ export default async function Page() {
 
   return (
     <>
-      <AuthHeading
-        title="Tell us about you"
-        description="We use this to personalize your metrics"
-      />
+      <AuthHeading title={t("title")} description={t("description")} />
 
       <form
         action={completeProfile}
@@ -78,16 +78,16 @@ export default async function Page() {
           required
           name="dateOfBirth"
           max={today}
-          label="Date of birth"
-          placeholder="YYYY-MM-DD"
+          label={t("date-of-birth.label")}
+          placeholder={t("date-of-birth.placeholder")}
         />
 
         <Select
           required
           name="gender"
-          label="Gender"
+          label={t("gender.label")}
           items={genderItems}
-          placeholder="Select gender"
+          placeholder={t("gender.placeholder")}
         />
 
         <NumberInput
@@ -95,12 +95,12 @@ export default async function Page() {
           name="height"
           min={50}
           max={300}
-          label="Height (cm)"
-          placeholder="175"
+          label={t("height.label")}
+          placeholder={t("height.placeholder")}
         />
 
         <Button type="submit" size="lg" w="full" mt="1">
-          Continue
+          {t("continue")}
         </Button>
       </form>
     </>

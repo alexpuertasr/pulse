@@ -1,5 +1,8 @@
+import { LocaleProvider } from "@ark-ui/react/locale";
 import type { Metadata } from "next";
 import { Roboto_Mono, Wix_Madefor_Text } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import "./globals.css";
 
@@ -13,22 +16,32 @@ const robotoMono = Roboto_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Pulse",
-  description: "Track the signals",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("metadata");
 
-export default function RootLayout({
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${wixMadeforText.variable} ${robotoMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <NextIntlClientProvider>
+          <LocaleProvider locale={locale}>{children}</LocaleProvider>
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

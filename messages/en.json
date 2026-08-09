@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "title": "Pulse",
+    "description": "Track the signals"
+  },
+  "dashboard": {
+    "sign-out": "Sign out"
+  },
+  "signin": {
+    "title": "Welcome to Pulse",
+    "description": "Sign in to track the signals",
+    "continue-with-google": "Continue with Google",
+    "privacy-note": "Your data stays yours. We only use Google to sign you in."
+  },
+  "onboarding": {
+    "title": "Tell us about you",
+    "description": "We use this to personalize your metrics",
+    "date-of-birth": {
+      "label": "Date of birth",
+      "placeholder": "YYYY-MM-DD"
+    },
+    "gender": {
+      "label": "Gender",
+      "placeholder": "Select gender",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other"
+    },
+    "height": {
+      "label": "Height (cm)",
+      "placeholder": "175"
+    },
+    "continue": "Continue"
+  },
+  "locale-switcher": {
+    "label": "Language",
+    "en": "English",
+    "es": "Español"
+  }
+}

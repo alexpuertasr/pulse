@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "title": "Pulse",
+    "description": "Sigue las señales"
+  },
+  "dashboard": {
+    "sign-out": "Cerrar sesión"
+  },
+  "signin": {
+    "title": "Bienvenido a Pulse",
+    "description": "Inicia sesión para seguir las señales",
+    "continue-with-google": "Continuar con Google",
+    "privacy-note": "Tus datos son tuyos. Solo usamos Google para iniciar sesión."
+  },
+  "onboarding": {
+    "title": "Cuéntanos sobre ti",
+    "description": "Usamos esto para personalizar tus métricas",
+    "date-of-birth": {
+      "label": "Fecha de nacimiento",
+      "placeholder": "AAAA-MM-DD"
+    },
+    "gender": {
+      "label": "Género",
+      "placeholder": "Selecciona tu género",
+      "male": "Hombre",
+      "female": "Mujer",
+      "other": "Otro"
+    },
+    "height": {
+      "label": "Estatura (cm)",
+      "placeholder": "175"
+    },
+    "continue": "Continuar"
+  },
+  "locale-switcher": {
+    "label": "Idioma",
+    "en": "English",
+    "es": "Español"
+  }
+}
