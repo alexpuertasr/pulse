@@ -1,7 +1,14 @@
 import { defineConfig } from "@pandacss/dev";
 
+import { coral } from "./src/theme/colors/coral";
+import { gray } from "./src/theme/colors/gray";
+import { button } from "./src/theme/recipes/button";
+import { semanticColors } from "./src/theme/semantic-tokens";
+import { fonts } from "./src/theme/tokens/fonts";
+
 export default defineConfig({
   preflight: true,
+  jsxFramework: "react",
   outdir: "src/styled-system",
   importMap: "@/styled-system",
   include: [
@@ -9,7 +16,39 @@ export default defineConfig({
     "./src/components/**/*.{ts,tsx,js,jsx}",
   ],
   exclude: [],
+  conditions: {
+    extend: {
+      light: ":root &, .light &",
+      dark: ".dark &",
+    },
+  },
+  globalCss: {
+    extend: {
+      html: {
+        colorPalette: "coral",
+      },
+      body: {
+        background: "bg.canvas",
+        color: "fg.default",
+        fontFamily: "sans",
+      },
+    },
+  },
   theme: {
-    extend: {},
+    extend: {
+      tokens: {
+        fonts,
+      },
+      semanticTokens: {
+        colors: {
+          ...semanticColors,
+          coral,
+          gray,
+        },
+      },
+      recipes: {
+        button,
+      },
+    },
   },
 });
