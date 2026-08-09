@@ -7,7 +7,7 @@
     "node": "24.x"
   },
   "scripts": {
-    "prepare": "husky",
+    "prepare": "panda codegen && husky",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -31,14 +31,13 @@
     "@biomejs/biome": "2.5.7",
     "@commitlint/cli": "21.2.1",
     "@commitlint/config-conventional": "21.2.0",
-    "@tailwindcss/postcss": "4.3.3",
+    "@pandacss/dev": "1.12.0",
     "@types/node": "26.1.2",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
     "babel-plugin-react-compiler": "1.0.0",
     "drizzle-kit": "1.0.0-rc.4",
     "husky": "9.1.7",
-    "tailwindcss": "4.3.3",
     "tsx": "4.23.9",
     "typescript": "7.0.2"
   }
