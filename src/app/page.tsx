@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { PulseLogo } from "@/components/pulse-logo";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
+import { isProfileComplete } from "@/lib/profile";
 import { css } from "@/styled-system/css";
 
 export default async function Page() {
@@ -13,6 +14,10 @@ export default async function Page() {
 
   if (!session) {
     redirect("/auth/signin");
+  }
+
+  if (!isProfileComplete(session.user)) {
+    redirect("/auth/onboarding");
   }
 
   async function handleSignOut() {

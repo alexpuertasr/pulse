@@ -3,6 +3,9 @@ import { defineConfig } from "@pandacss/dev";
 import { coral } from "./src/theme/colors/coral";
 import { gray } from "./src/theme/colors/gray";
 import { button } from "./src/theme/recipes/button";
+import { datePicker } from "./src/theme/recipes/date-picker";
+import { numberInput } from "./src/theme/recipes/number-input";
+import { select } from "./src/theme/recipes/select";
 import { semanticColors } from "./src/theme/semantic-tokens";
 import { fonts } from "./src/theme/tokens/fonts";
 
@@ -48,6 +51,11 @@ export default defineConfig({
       },
       recipes: {
         button,
+      },
+      slotRecipes: {
+        datePicker,
+        numberInput,
+        select,
       },
     },
   },
