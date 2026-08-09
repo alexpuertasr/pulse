@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Roboto_Mono, Wix_Madefor_Text } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
+import { ThemeProvider } from "next-themes";
 
 import "./globals.css";
 
@@ -36,11 +37,14 @@ export default async function RootLayout({
     <html
       lang={locale}
       className={`${wixMadeforText.variable} ${robotoMono.variable}`}
+      suppressHydrationWarning
     >
       <body>
-        <NextIntlClientProvider>
-          <LocaleProvider locale={locale}>{children}</LocaleProvider>
-        </NextIntlClientProvider>
+        <ThemeProvider attribute="class" disableTransitionOnChange>
+          <NextIntlClientProvider>
+            <LocaleProvider locale={locale}>{children}</LocaleProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

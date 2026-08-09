@@ -31,7 +31,7 @@ export default async function Page() {
       <AuthHeading title={t("title")} description={t("description")} />
 
       <form action={handleSignIn} className={css({ w: "full" })}>
-        <Button type="submit" size="lg" w="full">
+        <Button type="submit" size="lg" className={css({ w: "full" })}>
           <GoogleLogo className={css({ boxSize: "5" })} />
           {t("continue-with-google")}
         </Button>

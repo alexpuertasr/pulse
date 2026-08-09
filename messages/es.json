@@ -36,5 +36,8 @@
     "label": "Idioma",
     "en": "English",
     "es": "Español"
+  },
+  "theme-switcher": {
+    "label": "Cambiar tema"
   }
 }

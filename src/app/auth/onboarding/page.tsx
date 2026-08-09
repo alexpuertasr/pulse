@@ -99,7 +99,7 @@ export default async function Page() {
           placeholder={t("height.placeholder")}
         />
 
-        <Button type="submit" size="lg" w="full" mt="1">
+        <Button type="submit" size="lg" className={css({ mt: "1", w: "full" })}>
           {t("continue")}
         </Button>
       </form>

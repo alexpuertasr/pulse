@@ -1,5 +1,6 @@
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { PulseLogo } from "@/components/pulse-logo";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import { css } from "@/styled-system/css";
 
 export default function AuthLayout({
@@ -21,9 +22,19 @@ export default function AuthLayout({
         px: "4",
       })}
     >
-      <LocaleSwitcher
-        className={css({ position: "absolute", right: "4", top: "4", w: "32" })}
-      />
+      <div
+        className={css({
+          alignItems: "center",
+          display: "flex",
+          gap: "2",
+          position: "absolute",
+          right: "4",
+          top: "4",
+        })}
+      >
+        <ThemeSwitcher />
+        <LocaleSwitcher className={css({ w: "32" })} />
+      </div>
       <div
         className={css({
           bg: "bg.default",
