@@ -16,7 +16,6 @@ export function LocaleSwitcher({ className }: { className?: string }) {
 
   return (
     <Select
-      size="lg"
       items={items}
       value={[locale]}
       disabled={isPending}
