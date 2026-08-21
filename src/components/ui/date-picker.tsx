@@ -14,7 +14,10 @@ import {
 } from "@/styled-system/recipes";
 
 export interface DatePickerProps
-  extends Omit<ArkDatePicker.RootProps, "format" | "parse" | "min" | "max">,
+  extends Omit<
+      ArkDatePicker.RootProps,
+      "format" | "parse" | "min" | "max" | "defaultValue"
+    >,
     DatePickerVariantProps {
   required?: boolean;
   label?: string;
@@ -23,6 +26,8 @@ export interface DatePickerProps
   min?: string;
   /** ISO date string, e.g. "2026-08-09" */
   max?: string;
+  /** ISO date string, e.g. "1990-04-20" */
+  defaultValue?: string;
 }
 
 function safeParseDate(value: string) {
@@ -40,10 +45,14 @@ export function DatePicker({
   placeholder,
   min,
   max,
+  defaultValue,
   className,
   ...rest
 }: DatePickerProps) {
   const classes = datePicker({ size });
+  const parsedDefaultValue = defaultValue
+    ? safeParseDate(defaultValue)
+    : undefined;
 
   return (
     <ArkDatePicker.Root
@@ -53,6 +62,7 @@ export function DatePicker({
       parse={safeParseDate}
       min={min ? safeParseDate(min) : undefined}
       max={max ? safeParseDate(max) : undefined}
+      defaultValue={parsedDefaultValue ? [parsedDefaultValue] : undefined}
     >
       {label && (
         <ArkDatePicker.Label className={classes.label}>
