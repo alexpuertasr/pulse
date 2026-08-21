@@ -71,6 +71,9 @@ export const select = defineSlotRecipe({
       outline: "0",
       overflowY: "auto",
       p: "1",
+      transformOrigin: "var(--transform-origin)",
+      _open: { animation: "scaleFadeIn 0.15s ease-out" },
+      _closed: { animation: "scaleFadeOut 0.1s ease-in" },
       _hidden: { display: "none" },
     },
     item: {

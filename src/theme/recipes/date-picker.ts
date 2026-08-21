@@ -78,6 +78,9 @@ export const datePicker = defineSlotRecipe({
       gap: "3",
       outline: "0",
       p: "3",
+      transformOrigin: "var(--transform-origin)",
+      _open: { animation: "scaleFadeIn 0.15s ease-out" },
+      _closed: { animation: "scaleFadeOut 0.1s ease-in" },
       _hidden: { display: "none" },
     },
     view: {
