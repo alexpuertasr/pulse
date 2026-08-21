@@ -46,6 +46,7 @@ export function DatePicker({
   min,
   max,
   defaultValue,
+  name,
   className,
   ...rest
 }: DatePickerProps) {
@@ -58,8 +59,6 @@ export function DatePicker({
     <ArkDatePicker.Root
       {...rest}
       className={cx(classes.root, className)}
-      format={(date) => date.toString()}
-      parse={safeParseDate}
       min={min ? safeParseDate(min) : undefined}
       max={max ? safeParseDate(max) : undefined}
       defaultValue={parsedDefaultValue ? [parsedDefaultValue] : undefined}
@@ -79,6 +78,19 @@ export function DatePicker({
           <CalendarIcon size={16} />
         </ArkDatePicker.Trigger>
       </ArkDatePicker.Control>
+      {/* The visible input shows the locale format, so the form submits the
+          ISO value through this hidden input instead. */}
+      {name && (
+        <ArkDatePicker.Context>
+          {(api) => (
+            <input
+              type="hidden"
+              name={name}
+              value={api.valueAsString[0] ?? ""}
+            />
+          )}
+        </ArkDatePicker.Context>
+      )}
       <Portal>
         <ArkDatePicker.Positioner className={classes.positioner}>
           <ArkDatePicker.Content className={classes.content}>

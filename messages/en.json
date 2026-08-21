@@ -52,7 +52,7 @@
     },
     "date-of-birth": {
       "label": "Date of birth",
-      "placeholder": "YYYY-MM-DD"
+      "placeholder": "MM/DD/YYYY"
     },
     "gender": {
       "label": "Gender",
@@ -84,7 +84,7 @@
     "description": "We use this to personalize your metrics",
     "date-of-birth": {
       "label": "Date of birth",
-      "placeholder": "YYYY-MM-DD"
+      "placeholder": "MM/DD/YYYY"
     },
     "gender": {
       "label": "Gender",

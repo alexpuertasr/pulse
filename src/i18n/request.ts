@@ -26,11 +26,37 @@ async function resolveLocale(): Promise<Locale> {
   return defaultLocale;
 }
 
+// Messages ship per base language (en/es), but formatting (dates, numbers)
+// should honor the user's regional conventions, e.g. en-AU → DD/MM/YYYY.
+// Returns the first Accept-Language tag matching the resolved language,
+// falling back to the base language itself.
+async function resolveFormattingLocale(locale: Locale): Promise<string> {
+  const acceptLanguage = (await headers()).get("accept-language") ?? "";
+
+  for (const part of acceptLanguage.split(",")) {
+    const tag = part.split(";")[0]?.trim();
+    if (!tag) {
+      continue;
+    }
+
+    try {
+      const parsed = new Intl.Locale(tag);
+      if (parsed.language === locale) {
+        return parsed.toString();
+      }
+    } catch {
+      // Malformed tag in the header, skip it.
+    }
+  }
+
+  return locale;
+}
+
 export default getRequestConfig(async () => {
   const locale = await resolveLocale();
 
   return {
-    locale,
+    locale: await resolveFormattingLocale(locale),
     messages: (await import(`../../messages/${locale}.json`)).default,
   };
 });

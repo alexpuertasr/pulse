@@ -10,7 +10,9 @@ import { type Locale, locales } from "@/i18n/config";
 export function LocaleSwitcher({ className }: { className?: string }) {
   const t = useTranslations("locale-switcher");
   const [isPending, startTransition] = useTransition();
-  const locale = useLocale();
+  // useLocale() may return a regional tag like "en-AU"; the switcher
+  // operates on the base language.
+  const locale = new Intl.Locale(useLocale()).language;
 
   const items = locales.map((l) => ({ label: t(l), value: l }));
 
