@@ -2,8 +2,10 @@ import { defineConfig } from "@pandacss/dev";
 
 import { coral } from "./src/theme/colors/coral";
 import { gray } from "./src/theme/colors/gray";
+import { keyframes } from "./src/theme/keyframes";
 import { button } from "./src/theme/recipes/button";
 import { datePicker } from "./src/theme/recipes/date-picker";
+import { drawer } from "./src/theme/recipes/drawer";
 import { menu } from "./src/theme/recipes/menu";
 import { numberInput } from "./src/theme/recipes/number-input";
 import { select } from "./src/theme/recipes/select";
@@ -43,6 +45,7 @@ export default defineConfig({
       tokens: {
         fonts,
       },
+      keyframes,
       semanticTokens: {
         colors: {
           ...semanticColors,
@@ -55,6 +58,7 @@ export default defineConfig({
       },
       slotRecipes: {
         datePicker,
+        drawer,
         menu,
         numberInput,
         select,
