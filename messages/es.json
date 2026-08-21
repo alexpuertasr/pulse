@@ -3,8 +3,75 @@
     "title": "Pulse",
     "description": "Sigue las señales"
   },
-  "dashboard": {
+  "sidebar": {
+    "menu": "Menú",
+    "open-menu": "Abrir menú",
+    "close-menu": "Cerrar menú",
+    "home": "Inicio",
+    "measurements": "Medidas",
+    "edit-profile": "Editar perfil",
     "sign-out": "Cerrar sesión"
+  },
+  "home": {
+    "title": "Hola de nuevo, {name}",
+    "description": "Un vistazo rápido a tus señales",
+    "stats": {
+      "age": "Edad",
+      "years": "{age} años",
+      "height": "Estatura",
+      "weight": "Peso",
+      "waist": "Cintura",
+      "no-data": "Sin datos aún"
+    }
+  },
+  "measurements": {
+    "title": "Medidas corporales",
+    "description": "Todas tus medidas registradas, en centímetros",
+    "empty": {
+      "title": "Aún no hay medidas",
+      "description": "Tus medidas corporales aparecerán aquí cuando las registres."
+    },
+    "table": {
+      "date": "Fecha",
+      "neck": "Cuello",
+      "shoulders": "Hombros",
+      "chest": "Pecho",
+      "waist": "Cintura",
+      "hips": "Caderas",
+      "biceps": "Bíceps",
+      "thigh": "Muslo",
+      "calf": "Pantorrilla"
+    }
+  },
+  "profile": {
+    "title": "Editar perfil",
+    "description": "Actualiza tus datos personales",
+    "personal": {
+      "title": "Datos personales",
+      "description": "Se usan para adaptar tus estadísticas"
+    },
+    "date-of-birth": {
+      "label": "Fecha de nacimiento",
+      "placeholder": "AAAA-MM-DD"
+    },
+    "gender": {
+      "label": "Género",
+      "placeholder": "Selecciona tu género",
+      "male": "Hombre",
+      "female": "Mujer",
+      "other": "Otro"
+    },
+    "height": {
+      "label": "Estatura (cm)",
+      "placeholder": "175"
+    },
+    "save": "Guardar cambios",
+    "preferences": {
+      "title": "Preferencias",
+      "description": "Ajusta el aspecto y el idioma de Pulse",
+      "theme": "Tema",
+      "language": "Idioma"
+    }
   },
   "signin": {
     "title": "Bienvenido a Pulse",

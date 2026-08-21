@@ -3,8 +3,75 @@
     "title": "Pulse",
     "description": "Track the signals"
   },
-  "dashboard": {
+  "sidebar": {
+    "menu": "Menu",
+    "open-menu": "Open menu",
+    "close-menu": "Close menu",
+    "home": "Home",
+    "measurements": "Measurements",
+    "edit-profile": "Edit profile",
     "sign-out": "Sign out"
+  },
+  "home": {
+    "title": "Welcome back, {name}",
+    "description": "A quick look at where your signals stand",
+    "stats": {
+      "age": "Age",
+      "years": "{age} years",
+      "height": "Height",
+      "weight": "Weight",
+      "waist": "Waist",
+      "no-data": "No data yet"
+    }
+  },
+  "measurements": {
+    "title": "Body measurements",
+    "description": "Every measurement you've recorded, in centimeters",
+    "empty": {
+      "title": "No measurements yet",
+      "description": "Your body measurements will show up here once you record them."
+    },
+    "table": {
+      "date": "Date",
+      "neck": "Neck",
+      "shoulders": "Shoulders",
+      "chest": "Chest",
+      "waist": "Waist",
+      "hips": "Hips",
+      "biceps": "Biceps",
+      "thigh": "Thigh",
+      "calf": "Calf"
+    }
+  },
+  "profile": {
+    "title": "Edit profile",
+    "description": "Update your personal details",
+    "personal": {
+      "title": "Personal details",
+      "description": "Used to tailor your stats and insights"
+    },
+    "date-of-birth": {
+      "label": "Date of birth",
+      "placeholder": "YYYY-MM-DD"
+    },
+    "gender": {
+      "label": "Gender",
+      "placeholder": "Select gender",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other"
+    },
+    "height": {
+      "label": "Height (cm)",
+      "placeholder": "175"
+    },
+    "save": "Save changes",
+    "preferences": {
+      "title": "Preferences",
+      "description": "Adjust how Pulse looks and reads",
+      "theme": "Theme",
+      "language": "Language"
+    }
   },
   "signin": {
     "title": "Welcome to Pulse",
